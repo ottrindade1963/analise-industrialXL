@@ -1,0 +1,59 @@
+# ============================================================
+# Pipeline Africa MO — Requisitos de Dependências
+# ============================================================
+# Versões testadas e compatíveis com Google Colab (Python 3.10+)
+# Instalação: pip install -r requirements.txt
+#
+# NOTA: No Google Colab, a maioria já está pré-instalada.
+#       Apenas pymc, arviz, wbgapi e pmdarima precisam de instalação.
+# ============================================================
+
+# --- Core Data Science ---
+numpy>=1.24.0,<2.0.0          # Operações numéricas e álgebra linear
+pandas>=2.0.0,<3.0.0          # Manipulação de DataFrames
+scipy>=1.10.0,<2.0.0          # Estatísticas (Pearson, Spearman, linregress, F-test)
+
+# --- Visualização ---
+matplotlib>=3.7.0,<4.0.0      # Gráficos estáticos (PNG)
+seaborn>=0.12.0,<1.0.0        # Heatmaps, distribuições, pairplots
+
+# --- Machine Learning (Ensembles) ---
+scikit-learn>=1.3.0,<2.0.0    # RF, HistGBM, KMeans, PCA, StandardScaler, PermutationImportance
+xgboost>=1.7.0,<3.0.0         # XGBoost com regularização L1+L2
+
+# --- Séries Temporais ---
+statsmodels>=0.14.0,<1.0.0    # SARIMAX, OLS, Granger causality
+pmdarima>=2.0.0,<3.0.0        # auto_arima (selecção automática de ordens ARIMA)
+
+# --- Deep Learning ---
+tensorflow>=2.13.0,<3.0.0     # LSTM com Keras API (camadas recorrentes)
+
+# --- Modelagem Bayesiana ---
+pymc>=5.10.0,<6.0.0           # MCMC (NUTS sampler, partial/complete pooling)
+arviz>=0.17.0,<1.0.0          # Diagnóstico bayesiano (R-hat, ESS, HDI, trace plots) [Rec. 9]
+
+# --- Interpretabilidade (XAI) ---
+shap>=0.44.0,<1.0.0           # SHAP Values (TreeExplainer + KernelExplainer) [Rec. 8]
+
+# --- Extracção de Dados ---
+wbgapi>=1.0.0,<2.0.0          # API do Banco Mundial (WDI indicators)
+requests>=2.28.0,<3.0.0       # HTTP requests para WGI API REST
+
+# --- Serialização e I/O ---
+joblib>=1.3.0,<2.0.0          # Serialização de modelos PCA/Scaler
+openpyxl>=3.1.0,<4.0.0        # Exportação Excel (opcional)
+
+# --- Utilitários ---
+tqdm>=4.65.0,<5.0.0           # Barras de progresso (opcional)
+
+# ============================================================
+# Instalação rápida no Google Colab:
+# ============================================================
+# !pip install pymc arviz wbgapi pmdarima shap xgboost --quiet
+#
+# Verificação de versões:
+# import pkg_resources
+# for pkg in ['numpy', 'pandas', 'scikit-learn', 'xgboost',
+#             'pymc', 'arviz', 'shap', 'tensorflow']:
+#     print(f"{pkg}: {pkg_resources.get_distribution(pkg).version}")
+# ============================================================
